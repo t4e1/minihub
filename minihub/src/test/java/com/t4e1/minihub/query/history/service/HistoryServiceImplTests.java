@@ -1,5 +1,6 @@
 package com.t4e1.minihub.query.history.service;
 
+import com.t4e1.minihub.common.exception.InfoNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,4 +23,19 @@ class HistoryServiceImplTests {
                 () -> historyService.getRecordList()
         );
     }
+
+    @DisplayName("개인기록 단일 조회")
+    @Test
+    void getRecord() {
+
+        Assertions.assertDoesNotThrow(
+                () -> historyService.getRecord(1)
+        );
+
+        Assertions.assertThrows(InfoNotFoundException.class,
+                () -> historyService.getRecord(9999)
+        );
+    }
+
+
 }

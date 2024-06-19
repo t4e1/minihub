@@ -8,4 +8,5 @@ import java.util.List;
 public interface HistoryMapper {
     List<RecordDTO> selectList();
 
+    RecordDTO selectRecord(int id);
 }

@@ -5,4 +5,6 @@ import java.util.List;
 
 public interface HistoryService {
     List<RecordDTO> getRecordList();
+
+    RecordDTO getRecord(int id);
 }

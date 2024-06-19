@@ -1,5 +1,6 @@
 package com.t4e1.minihub.query.history.service;
 
+import com.t4e1.minihub.common.exception.InfoNotFoundException;
 import com.t4e1.minihub.query.history.dto.RecordDTO;
 import com.t4e1.minihub.query.history.repository.HistoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +19,25 @@ public class HistoryServiceImpl implements HistoryService{
         this.historyMapper = historyMapper;
     }
 
+    //전체 기록 조회(페이징 필요)
     @Override
     public List<RecordDTO> getRecordList() {
 
         List<RecordDTO> result = historyMapper.selectList();
+        if(result == null || result.isEmpty())
+            throw new InfoNotFoundException("Can't find any records.");
 
-        System.out.println("result = " + result);
-        System.out.println("result.get(1).getTags().get(2) = " + result.get(0).getTags().get(2));
         return result;
-//        return historyMapper.selectList();
+    }
+
+    //특정 기록 조회
+    @Override
+    public RecordDTO getRecord(int id) {
+
+        RecordDTO result = historyMapper.selectRecord(id);
+        if(result == null)
+            throw new InfoNotFoundException("Can't find "+ id +"record");
+
+        return result;
     }
 }

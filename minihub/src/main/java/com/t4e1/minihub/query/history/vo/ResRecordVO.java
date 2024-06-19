@@ -2,16 +2,14 @@ package com.t4e1.minihub.query.history.vo;
 
 import com.t4e1.minihub.query.history.dto.RecordDTO;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 
-import java.util.List;
-
-@AllArgsConstructor
 @Getter
-public class ResListVO {
+@ToString
+@AllArgsConstructor
+public class ResRecordVO {
 
     private String nextUrl;
-    private List<RecordDTO> result;
-
+    private RecordDTO result;
 }

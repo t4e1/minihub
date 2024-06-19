@@ -47,3 +47,12 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.withType(JavaCompile) {
+    options.annotationProcessorPath = configurations.annotationProcessor
+    options.incremental = false
+    options.compilerArgs = [
+            '-Amapstruct.suppressGeneratorTimestamp=true',
+            '-Amapstruct.defaultComponentModel=spring'
+    ]
+}
