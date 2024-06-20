@@ -7,10 +7,8 @@ import com.t4e1.minihub.query.history.vo.ResRecordVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController("HistoryQueryController")
@@ -25,7 +23,8 @@ public class HistoryController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<ResListVO> getAllRecord() {
+    public ResponseEntity<ResListVO> getAllRecord(@RequestParam(required = false) String title,
+                                                  @RequestParam(required = false) String[] tags) {
 
         List<RecordDTO> result = historyService.getRecordList();
         ResListVO response = new ResListVO("/record/{id}", result);

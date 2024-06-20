@@ -20,6 +20,7 @@ public class HistoryServiceImpl implements HistoryService{
     }
 
     //전체 기록 조회(페이징 필요)
+    //조회 시 검색 조건 추가 (제목 or 태그)
     @Override
     public List<RecordDTO> getRecordList() {
 
