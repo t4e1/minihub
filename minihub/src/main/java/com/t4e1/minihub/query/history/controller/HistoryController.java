@@ -1,5 +1,6 @@
 package com.t4e1.minihub.query.history.controller;
 
+import com.t4e1.minihub.common.paging.ScrollPaging;
 import com.t4e1.minihub.query.history.dto.RecordDTO;
 import com.t4e1.minihub.query.history.service.HistoryService;
 import com.t4e1.minihub.query.history.vo.ResListVO;
@@ -23,11 +24,16 @@ public class HistoryController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<ResListVO> getAllRecord(@RequestParam(required = false) String title,
-                                                  @RequestParam(required = false) String[] tags) {
+    public ResponseEntity<ResListVO> getAllRecord(@RequestParam(required = false, name = "title") String title,
+                                                  @RequestParam(required = false, name = "content") String content,
+                                                  @RequestParam(required = false, name = "tag") String tag,
+                                                  @RequestParam("page") int page,
+                                                  @RequestParam("num") int num) {
 
-        List<RecordDTO> result = historyService.getRecordList();
-        ResListVO response = new ResListVO("/record/{id}", result);
+        ScrollPaging paging = new ScrollPaging(page, num);
+
+        List<RecordDTO> result = historyService.getRecordList(title, content, tag, paging);
+        ResListVO response = new ResListVO("/record/{id}", result, paging);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }

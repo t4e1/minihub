@@ -22,16 +22,20 @@ public class ScrollPaging {
      * searchNum 만큼의 행을 offset부터 가져온다. (offset은 0부터 시작한다. offset=3이면 4~13을 반환한다는 뜻)
      * */
 
-    private int getNum;  // 몇개씩 조회할건지 -> 디폴트 10
-    private int currentPage; // 현재 페이지 정보 -> 디폴트 0 (DB에서 조회할때 1~10까지가 첫번째 조회일 거니까)
-    private int offset; // 어디서부터 조회를 시작할건지
-    private int totalNum;
+    private final int getNum;  // 몇개씩 조회할건지 -> 디폴트 10
+    private final int currentPage; // 현재 페이지 정보 -> 디폴트 0 (DB에서 조회할때 1~10까지가 첫번째 조회일 거니까)
+    private final int offset; // 어디서부터 조회를 시작할건지
+    private final int currentLoadedNum; // 현재 로드된 페이지가 총 몇개인지
 
-    public ScrollPaging(int getNum, int currentPage) {
-        this.getNum = getNum;
-        this.currentPage = currentPage - 1; // 1페이지라면 인덱스 0~9까지를 조회해화야하니 -1 시켜준다.
-        this.offset = getNum * currentPage; // 현재 페이지 * getNum 이후부터 조회를 시작한다.
+    // default 값으로 1페이지, 10개씩 검색하게함
+    public ScrollPaging() {
+        this(1, 10);
     }
 
-    
+    public ScrollPaging(int currentPage, int getNum) {
+        this.currentPage = currentPage - 1; // 1페이지라면 인덱스 0~9까지를 조회해화야하니 -1 시켜준다.
+        this.getNum = getNum;
+        this.offset = getNum * this.currentPage; // 현재 페이지 * getNum 이후부터 조회를 시작한다.
+        this.currentLoadedNum = this.offset + getNum;
+    }
 }

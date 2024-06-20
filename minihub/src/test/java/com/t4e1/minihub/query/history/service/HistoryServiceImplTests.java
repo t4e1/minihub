@@ -20,7 +20,7 @@ class HistoryServiceImplTests {
     void getRecordList() {
 
         Assertions.assertDoesNotThrow(
-                () -> historyService.getRecordList()
+                () -> historyService.getRecordList(null, null,null, null)
         );
     }
 
