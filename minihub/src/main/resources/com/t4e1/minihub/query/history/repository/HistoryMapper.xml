@@ -17,7 +17,6 @@
         H.id,
         H.title,
         H.content,
-        H.img_path,
         H.tags[:]
     </sql>
 

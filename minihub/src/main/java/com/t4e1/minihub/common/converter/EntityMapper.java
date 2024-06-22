@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface EntityMapper {
 
+    EntityMapper INSTANCE = org.mapstruct.factory.Mappers.getMapper(EntityMapper.class);
+
     //History Service Mapper
     History historyEntity();
     HistoryDTO historyDTO();

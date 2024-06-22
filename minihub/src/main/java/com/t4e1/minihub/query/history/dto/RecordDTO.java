@@ -9,7 +9,6 @@ public class RecordDTO {
     private int id;
     private String title;
     private String content;
-    private String path;
     private List<String> tags;
     private String pwd;
 
