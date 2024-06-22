@@ -1,5 +1,6 @@
 package com.t4e1.minihub.command.history.service;
 
+import com.t4e1.minihub.command.history.aggregate.History;
 import com.t4e1.minihub.command.history.dto.HistoryDTO;
 import com.t4e1.minihub.command.history.repository.HistoryDAO;
 import com.t4e1.minihub.command.history.vo.ReqAddVO;
@@ -22,8 +23,9 @@ public class HistoryServiceImpl implements HistoryService{
     @Override
     public HistoryDTO addRecord(HistoryDTO addData) {
 
+        History input = EntityMapper.INSTANCE.historyEntity(addData);
 
-
+        historyDAO.save(input);
 
         return null;
     }

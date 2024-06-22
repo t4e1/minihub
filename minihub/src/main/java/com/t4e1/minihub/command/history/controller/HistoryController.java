@@ -37,7 +37,7 @@ public class HistoryController {
     @PostMapping
     public ResponseEntity<ResAddVO> addRecord(@RequestBody ReqAddVO addData){
 
-        HistoryDTO result = historyService.addRecord(voMapper.historyDTO(addData));
+        HistoryDTO result = historyService.addRecord(voMapper.INSTANCE.historyDTO(addData));
         ResAddVO response = new ResAddVO("/records/list", result);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
@@ -50,4 +50,6 @@ public class HistoryController {
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+
+
 }
