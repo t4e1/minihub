@@ -15,7 +15,6 @@ import java.util.List;
 @Slf4j
 public class HistoryServiceImpl implements HistoryService{
 
-
     private final HistoryMapper historyMapper;
 
     @Autowired
@@ -25,7 +24,7 @@ public class HistoryServiceImpl implements HistoryService{
 
     //전체 기록 조회( 검색 조건, 페이징 처리 )
     @Override
-    public List<RecordDTO> getRecordList(String title, String content, String tag, ScrollPaging paging) {
+    public List<RecordDTO> getRecordList(String title, String content, List<String> tag, ScrollPaging paging) {
 
         SelectCondition selectCondition = new SelectCondition(title, content, tag, paging.getOffset(), paging.getGetNum());
         log.info("검색 조건 검증 로그 : {}", selectCondition);

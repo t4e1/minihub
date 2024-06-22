@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController("HistoryQueryController")
-@RequestMapping("/record")
+@RequestMapping("/records")
 public class HistoryController {
 
     private final HistoryService historyService;
@@ -26,7 +26,7 @@ public class HistoryController {
     @GetMapping("/list")
     public ResponseEntity<ResListVO> getAllRecord(@RequestParam(required = false, name = "title") String title,
                                                   @RequestParam(required = false, name = "content") String content,
-                                                  @RequestParam(required = false, name = "tag") String tag,
+                                                  @RequestParam(required = false, name = "tag") List<String> tag,
                                                   @RequestParam("page") int page,
                                                   @RequestParam("num") int num) {
 

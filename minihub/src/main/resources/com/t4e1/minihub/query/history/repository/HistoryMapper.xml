@@ -34,7 +34,9 @@
                 H.content LIKE CONCAT ('%', #{content}, '%')
             </if>
             <if test="tag != null and title == null and content == null">
-                ANY(H.tags) = #{tag}
+                <foreach collection="tag" item="tagItem" separator=" AND ">
+                    ANY(H.tags) = #{tagItem}
+                </foreach>
             </if>
         </where>
         ORDER BY H.id DESC;

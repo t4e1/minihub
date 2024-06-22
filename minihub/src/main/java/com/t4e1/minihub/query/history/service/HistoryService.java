@@ -5,7 +5,7 @@ import com.t4e1.minihub.query.history.dto.RecordDTO;
 import java.util.List;
 
 public interface HistoryService {
-    List<RecordDTO> getRecordList(String title, String content, String tag, ScrollPaging paging);
+    List<RecordDTO> getRecordList(String title, String content, List<String> tag, ScrollPaging paging);
 
     RecordDTO getRecord(int id);
 }

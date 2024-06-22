@@ -36,8 +36,7 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     //S3관련 라이브러리
-//    implementation group: 'io.spring.cloud', name: 'spring-cloud-starter-aws', version: '2.4.0'
-//    implementation 'io.awspring.cloud:spring-cloud-starter-aws-secrets-manager-config:2.4.4'
+    implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
 
     //MapStruct 라이브러리
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'

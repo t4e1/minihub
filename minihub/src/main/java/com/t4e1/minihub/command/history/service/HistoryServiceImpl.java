@@ -1,6 +1,8 @@
 package com.t4e1.minihub.command.history.service;
 
+import com.t4e1.minihub.command.history.dto.HistoryDTO;
 import com.t4e1.minihub.command.history.repository.HistoryDAO;
+import com.t4e1.minihub.command.history.vo.ReqAddVO;
 import com.t4e1.minihub.common.converter.EntityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,5 +17,14 @@ public class HistoryServiceImpl implements HistoryService{
     public HistoryServiceImpl(EntityMapper EntityMapper, HistoryDAO historyDAO) {
         this.EntityMapper = EntityMapper;
         this.historyDAO = historyDAO;
+    }
+
+    @Override
+    public HistoryDTO addRecord(HistoryDTO addData) {
+
+
+
+
+        return null;
     }
 }

@@ -1,15 +1,26 @@
 package com.t4e1.minihub.common.converter;
 
+import com.t4e1.minihub.command.history.aggregate.History;
+import com.t4e1.minihub.command.history.dto.HistoryDTO;
 import org.mapstruct.Mapper;
 
 @Mapper
 public interface EntityMapper {
 
-    //History 서비스 구역
+    //History Service Mapper
+    History historyEntity();
+    HistoryDTO historyDTO();
 
-    //Event 서비스 구역
 
-    //Memo 서비스 구역
+    //Event Service Mapper
 
-    //Schedule 서비스 구역
+
+
+    //Memo Service Mapper
+
+
+    //Schedule Service Mapper
+
+
+
 }
