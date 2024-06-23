@@ -11,8 +11,10 @@ public interface VOMapper {
     VOMapper INSTANCE = org.mapstruct.factory.Mappers.getMapper(VOMapper.class);
 
     // History Controller Mapper
-    @Mapping(source = "title", target = "")
+    @Mapping(source = "title", target = "title")
+    @Mapping(source = "content", target = "content")
+    @Mapping(source = "tags", target = "tags")
+    @Mapping(source = "pwd", target = "pwd")
     HistoryDTO historyDTO(ReqAddVO addData);
-
 
 }
