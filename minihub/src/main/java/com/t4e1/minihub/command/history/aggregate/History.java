@@ -1,6 +1,6 @@
 package com.t4e1.minihub.command.history.aggregate;
 
-import com.t4e1.minihub.config.StringListType;
+import io.hypersistence.utils.hibernate.type.array.ListArrayType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Type;
@@ -24,8 +24,8 @@ public class History {
     @Column
     private String content;
     @ElementCollection
-    @Type(value = StringListType.class)
-    @Column(name = "tags", columnDefinition = "varchar(255)[]")
+    @Type(ListArrayType.class)
+    @Column(name = "tags", columnDefinition = "varchar[]")
     private List<String> tags;
     @Column
     private String pwd;

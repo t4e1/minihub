@@ -28,7 +28,7 @@ class HistoryServiceImplTests {
     void addRecordTest() {
 
         HistoryDTO historyDTO = new HistoryDTO("테스트", "테스트내용",
-                new ArrayList<String>(Arrays.asList("tag1", "tag2", "tag3")), "1234");
+                Arrays.asList("tag1", "tag2", "tag3"), "1234");
 
         Assertions.assertDoesNotThrow(
                 () -> {
