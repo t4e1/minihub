@@ -7,6 +7,7 @@ import com.t4e1.minihub.command.history.vo.ReqAddVO;
 import com.t4e1.minihub.command.history.vo.ResAddVO;
 import com.t4e1.minihub.common.converter.VOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +29,7 @@ public class HistoryController {
 
     @Autowired
     public HistoryController(HistoryService historyService, S3Service s3Service,
-                             VOMapper voMapper) {
+                             @Qualifier("VOMapper") VOMapper voMapper) {
         this.historyService = historyService;
         this.s3Service = s3Service;
         this.voMapper = voMapper;
