@@ -1,7 +1,7 @@
 package com.t4e1.minihub.common.converter;
 
 import com.t4e1.minihub.command.history.dto.HistoryDTO;
-import com.t4e1.minihub.command.history.vo.ReqAddVO;
+import com.t4e1.minihub.command.history.vo.ReqVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -15,6 +15,6 @@ public interface VOMapper {
     @Mapping(source = "content", target = "content")
     @Mapping(source = "tags", target = "tags")
     @Mapping(source = "pwd", target = "pwd")
-    HistoryDTO historyDTO(ReqAddVO addData);
+    HistoryDTO historyDTO(ReqVO addData);
 
 }

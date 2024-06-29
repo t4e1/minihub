@@ -2,37 +2,67 @@ package com.t4e1.minihub.command.history.service;
 
 import com.t4e1.minihub.command.history.aggregate.History;
 import com.t4e1.minihub.command.history.dto.HistoryDTO;
-import com.t4e1.minihub.command.history.repository.HistoryDAO;
+import com.t4e1.minihub.command.history.repository.HistoryRepository;
 import com.t4e1.minihub.common.converter.EntityMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
 
 @Service("HistoryCommandService")
+@Slf4j
 public class HistoryServiceImpl implements HistoryService{
 
     private final EntityMapper entityMapper;
-    private final HistoryDAO historyDAO;
+    private final HistoryRepository historyRepository;
 
     @Autowired
-    public HistoryServiceImpl(EntityMapper entityMapper, HistoryDAO historyDAO) {
+    public HistoryServiceImpl(EntityMapper entityMapper, HistoryRepository historyRepository) {
         this.entityMapper = entityMapper;
-        this.historyDAO = historyDAO;
+        this.historyRepository = historyRepository;
     }
 
     @Override
-    public HistoryDTO addRecord(HistoryDTO addData) {
+    @Transactional
+    public boolean addRecord(HistoryDTO addData) {
 
         History input = entityMapper.INSTANCE.historyEntity(addData);
-        System.out.println("addData = " + addData);
-        System.out.println("input = " + input);
-        Optional<History> result = historyDAO.findById(1);
-        System.out.println("result = " + result);
 
-        historyDAO.save(input);
-        System.out.println(" 입력 성공 ");
+        try {
+            historyRepository.save(input);
+            return true;
+        } catch(Exception e) {
 
-        return null;
+            // 에러 발생 시 'INPUT DATA' 로 로그 검색
+            log.error("ERROR - INPUT HISTORY DATA : {}", e.getMessage());
+        }
+
+        return false;
+    }
+
+    @Override
+    @Transactional
+    public boolean modifyRecord(HistoryDTO historyDTO) {
+
+        try {
+            History oldData = getOldDataByID(historyDTO.getId());
+            oldData = entityMapper.historyEntity(historyDTO);
+            historyRepository.save(oldData);
+
+            return true;
+        } catch(Exception e) {
+
+            log.error("ERROR - MODIFY HISTORY DATA : {}", e.getMessage());
+        }
+
+        return false;
+    }
+
+    private History getOldDataByID(int id) {
+
+        return historyRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 }
+
+

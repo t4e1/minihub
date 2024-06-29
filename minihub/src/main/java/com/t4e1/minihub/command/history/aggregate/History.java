@@ -10,10 +10,9 @@ import java.util.List;
 @Entity
 @Table(name="history")
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@Setter
 @Builder
 public class History {
 
@@ -23,7 +22,7 @@ public class History {
     private String title;
     @Column
     private String content;
-    @Type(io.hypersistence.utils.hibernate.type.array.ListArrayType.class)
+    @Type(ListArrayType.class)
     @Column(name = "tags", columnDefinition = "varchar[]")
     private List<String> tags;
     @Column

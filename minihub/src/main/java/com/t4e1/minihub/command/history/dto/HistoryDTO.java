@@ -12,6 +12,7 @@ import java.util.List;
 @Builder
 public class HistoryDTO {
 
+    private int id;
     private String title;
     private String content;
     private List<String> tags;

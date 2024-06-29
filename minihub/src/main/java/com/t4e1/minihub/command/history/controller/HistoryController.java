@@ -1,22 +1,19 @@
 package com.t4e1.minihub.command.history.controller;
 
+import com.amazonaws.Response;
 import com.t4e1.minihub.command.aws.S3Service;
 import com.t4e1.minihub.command.history.dto.HistoryDTO;
 import com.t4e1.minihub.command.history.service.HistoryService;
-import com.t4e1.minihub.command.history.vo.ReqAddVO;
-import com.t4e1.minihub.command.history.vo.ResAddVO;
+import com.t4e1.minihub.command.history.vo.ReqVO;
+import com.t4e1.minihub.command.history.vo.ResVO;
 import com.t4e1.minihub.common.converter.VOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController("HistoryCommandController")
@@ -36,12 +33,16 @@ public class HistoryController {
     }
 
     @PostMapping
-    public ResponseEntity<ResAddVO> addRecord(@RequestBody ReqAddVO addData){
+    public ResponseEntity<ResVO> addRecord(@RequestBody ReqVO addData){
 
-        HistoryDTO result = historyService.addRecord(voMapper.INSTANCE.historyDTO(addData));
-        ResAddVO response = new ResAddVO("/records/list", result);
+        HistoryDTO inputData = voMapper.INSTANCE.historyDTO(addData);
 
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        if(historyService.addRecord(inputData)){
+            ResVO response = new ResVO("/records/list", inputData);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        }
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }
 
     @PostMapping("/images")
@@ -49,8 +50,22 @@ public class HistoryController {
 
         List<String> response = s3Service.s3Upload(files);
 
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ResVO> modifyRecord(@PathVariable("id") int id,
+                                           @RequestBody ReqVO data) {
 
+        HistoryDTO modifyData = voMapper.INSTANCE.historyDTO(data);
+        modifyData.setId(id);
+
+        if(historyService.modifyRecord(modifyData)){
+
+            ResVO response = new ResVO("/records/" + id, modifyData);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        }
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
 }

@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class ResAddVO {
+public class ResVO {
 
     private String nextUrl;
     private HistoryDTO result;

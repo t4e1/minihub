@@ -26,12 +26,27 @@ class HistoryServiceImplTests {
     @Transactional
     void addRecordTest() {
 
-        HistoryDTO historyDTO = new HistoryDTO("테스트", "테스트내용",
+        HistoryDTO historyDTO = new HistoryDTO(0,"테스트", "테스트내용",
                 new ArrayList<>(Arrays.asList("tag1", "tag2", "tag3")), "1234");
 
         Assertions.assertDoesNotThrow(
                 () -> {
                     historyService.addRecord(historyDTO);
+                }
+        );
+    }
+
+    @DisplayName("기록 변경 테스트")
+    @Test
+    @Transactional
+    void modifyRecordTest() {
+
+        HistoryDTO modifyDTO = new HistoryDTO(1,"테스트", "테스트내용",
+                new ArrayList<>(Arrays.asList("tag1", "tag2", "tag3")), "1234");
+
+        Assertions.assertDoesNotThrow(
+                () -> {
+                    historyService.modifyRecord(modifyDTO);
                 }
         );
     }
