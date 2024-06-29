@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @SpringBootTest
 class HistoryServiceImplTests {
@@ -28,7 +27,7 @@ class HistoryServiceImplTests {
     void addRecordTest() {
 
         HistoryDTO historyDTO = new HistoryDTO("테스트", "테스트내용",
-                Arrays.asList("tag1", "tag2", "tag3"), "1234");
+                new ArrayList<>(Arrays.asList("tag1", "tag2", "tag3")), "1234");
 
         Assertions.assertDoesNotThrow(
                 () -> {

@@ -23,8 +23,7 @@ public class History {
     private String title;
     @Column
     private String content;
-    @ElementCollection
-    @Type(ListArrayType.class)
+    @Type(io.hypersistence.utils.hibernate.type.array.ListArrayType.class)
     @Column(name = "tags", columnDefinition = "varchar[]")
     private List<String> tags;
     @Column

@@ -29,7 +29,7 @@ public class HistoryController {
 
     @Autowired
     public HistoryController(HistoryService historyService, S3Service s3Service,
-                             @Qualifier("VOMapper") VOMapper voMapper) {
+                             @Qualifier("VOMapperImpl") VOMapper voMapper) {
         this.historyService = historyService;
         this.s3Service = s3Service;
         this.voMapper = voMapper;
