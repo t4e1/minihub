@@ -62,8 +62,18 @@ public class HistoryController {
 
         if(historyService.modifyRecord(modifyData)){
 
-            ResVO response = new ResVO("/records/" + id, modifyData);
-            return ResponseEntity.status(HttpStatus.OK).body(response);
+            return ResponseEntity.status(HttpStatus.OK).body(new ResVO("/records/" + id, modifyData));
+        }
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ResVO> deleteRecord(@PathVariable("id") int id) {
+
+        if(historyService.deleteRecord(id)){
+
+            return ResponseEntity.status(HttpStatus.OK).body(new ResVO("/records/list", null));
         }
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

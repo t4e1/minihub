@@ -6,4 +6,6 @@ public interface HistoryService {
     boolean addRecord(HistoryDTO addData);
 
     boolean modifyRecord(HistoryDTO historyDTO);
+
+    boolean deleteRecord(int id);
 }

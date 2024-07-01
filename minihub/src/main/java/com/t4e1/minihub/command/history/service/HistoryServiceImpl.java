@@ -63,6 +63,22 @@ public class HistoryServiceImpl implements HistoryService{
 
         return historyRepository.findById(id).orElseThrow(RuntimeException::new);
     }
+
+    @Override
+    @Transactional
+    public boolean deleteRecord(int id) {
+
+        try {
+            historyRepository.deleteById(id);
+
+            return true;
+        } catch(Exception e) {
+
+            log.error("ERROR - DELETE HISTORY DATA : {}", e.getMessage());
+        }
+
+        return false;
+    }
 }
 
 
