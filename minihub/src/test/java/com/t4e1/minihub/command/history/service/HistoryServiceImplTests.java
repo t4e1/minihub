@@ -50,4 +50,16 @@ class HistoryServiceImplTests {
                 }
         );
     }
+
+    @DisplayName("기록 삭제 테스트")
+    @Test
+    @Transactional
+    void deleteRecordTest() {
+
+        Assertions.assertDoesNotThrow(
+                () -> {
+                    historyService.deleteRecord(1);
+                }
+        );
+    }
 }
