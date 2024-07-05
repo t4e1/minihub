@@ -2,6 +2,8 @@ package com.t4e1.minihub.common.converter;
 
 import com.t4e1.minihub.command.history.aggregate.History;
 import com.t4e1.minihub.command.history.dto.HistoryDTO;
+import com.t4e1.minihub.command.memo.aggregate.Memo;
+import com.t4e1.minihub.command.memo.dto.MemoDTO;
 import com.t4e1.minihub.config.MapStructConfig;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -23,6 +25,8 @@ public interface EntityMapper {
     @Mapping(source = "tags", target = "tags")
     @Mapping(source = "pwd", target = "pwd")
     HistoryDTO historyDTO(History history);
+
+    Memo memoEntity(MemoDTO addData);
 
 
     //Event Service Mapper

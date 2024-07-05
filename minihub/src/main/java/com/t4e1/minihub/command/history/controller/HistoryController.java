@@ -1,11 +1,10 @@
 package com.t4e1.minihub.command.history.controller;
 
-import com.amazonaws.Response;
 import com.t4e1.minihub.command.aws.S3Service;
 import com.t4e1.minihub.command.history.dto.HistoryDTO;
 import com.t4e1.minihub.command.history.service.HistoryService;
-import com.t4e1.minihub.command.history.vo.ReqVO;
-import com.t4e1.minihub.command.history.vo.ResVO;
+import com.t4e1.minihub.command.history.vo.HistoryReqVO;
+import com.t4e1.minihub.command.history.vo.HistoryResVO;
 import com.t4e1.minihub.common.converter.VOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -33,12 +32,12 @@ public class HistoryController {
     }
 
     @PostMapping
-    public ResponseEntity<ResVO> addRecord(@RequestBody ReqVO addData){
+    public ResponseEntity<HistoryResVO> addRecord(@RequestBody HistoryReqVO addData){
 
         HistoryDTO inputData = voMapper.INSTANCE.historyDTO(addData);
 
         if(historyService.addRecord(inputData)){
-            ResVO response = new ResVO("/records/list", inputData);
+            HistoryResVO response = new HistoryResVO("/records/list", inputData);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         }
 
@@ -54,26 +53,26 @@ public class HistoryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ResVO> modifyRecord(@PathVariable("id") int id,
-                                           @RequestBody ReqVO data) {
+    public ResponseEntity<HistoryResVO> modifyRecord(@PathVariable("id") int id,
+                                                     @RequestBody HistoryReqVO data) {
 
         HistoryDTO modifyData = voMapper.INSTANCE.historyDTO(data);
         modifyData.setId(id);
 
         if(historyService.modifyRecord(modifyData)){
 
-            return ResponseEntity.status(HttpStatus.OK).body(new ResVO("/records/" + id, modifyData));
+            return ResponseEntity.status(HttpStatus.OK).body(new HistoryResVO("/records/" + id, modifyData));
         }
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResVO> deleteRecord(@PathVariable("id") int id) {
+    public ResponseEntity<HistoryResVO> deleteRecord(@PathVariable("id") int id) {
 
         if(historyService.deleteRecord(id)){
 
-            return ResponseEntity.status(HttpStatus.OK).body(new ResVO("/records/list", null));
+            return ResponseEntity.status(HttpStatus.OK).body(new HistoryResVO("/records/list", null));
         }
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

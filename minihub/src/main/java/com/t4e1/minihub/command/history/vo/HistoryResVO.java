@@ -6,9 +6,9 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class ResVO {
+public class HistoryResVO {
 
     private String nextUrl;
-    private HistoryDTO result;
+    private HistoryDTO resultDTO;
 
 }

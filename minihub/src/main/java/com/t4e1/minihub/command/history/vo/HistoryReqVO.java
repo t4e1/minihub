@@ -7,7 +7,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Builder
-public class ReqVO {
+public class HistoryReqVO {
 
     private String title;
     private String content;

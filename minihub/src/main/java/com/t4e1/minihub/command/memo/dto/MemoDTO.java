@@ -1,26 +1,18 @@
-package com.t4e1.minihub.command.memo.aggregate;
+package com.t4e1.minihub.command.memo.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Entity
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Builder
-@Table(name="memo")
-public class Memo {
+public class MemoDTO {
 
-    @Id
     private int id;
-    @Column
     private String title;
-    @Column
     private String content;
-    @Column
     private int scheduleId;
 
 }
