@@ -25,7 +25,7 @@ public class HistoryController {
 
     @Autowired
     public HistoryController(HistoryService historyService, S3Service s3Service,
-                             @Qualifier("VOMapperImpl") VOMapper voMapper) {
+                             VOMapper voMapper) {
         this.historyService = historyService;
         this.s3Service = s3Service;
         this.voMapper = voMapper;

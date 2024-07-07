@@ -23,7 +23,7 @@ public class MemoController {
 
     @Autowired
     public MemoController(MemoService memoService,
-                          @Qualifier("VOMapper") VOMapper voMapper) {
+                          VOMapper voMapper) {
         this.memoService = memoService;
         this.voMapper = voMapper;
     }
@@ -31,7 +31,7 @@ public class MemoController {
     @PostMapping
     public ResponseEntity<MemoResVO> addNewMemo(@RequestBody MemoReqVO req){
 
-        MemoDTO addData = voMapper.memoDTO(req);
+        MemoDTO addData = voMapper.INSTANCE.memoDTO(req);
 
         if(memoService.addNewMemo(addData)) {
 

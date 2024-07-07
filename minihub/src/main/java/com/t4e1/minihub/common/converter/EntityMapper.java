@@ -8,7 +8,7 @@ import com.t4e1.minihub.config.MapStructConfig;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(config = MapStructConfig.class)
+@Mapper(componentModel = "spring")
 public interface EntityMapper {
 
     EntityMapper INSTANCE = org.mapstruct.factory.Mappers.getMapper(EntityMapper.class);
