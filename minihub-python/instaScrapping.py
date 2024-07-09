@@ -1,8 +1,9 @@
-from playwright.async_api import async_playwright
+from playwright.sync_api import sync_playwright
+from bs4 import BeautifulSoup
 
-async def scrape_instagram():
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False, slow_mo=50)
-        page = await browser.new_page()
-        await page.goto('https://google.com')
-        return "Scraping Completed"
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page()
+    page.goto("https://m.blog.naver.com/PostList.naver?blogId=smdcmart&tab=1")
+    page.screenshot(path="demo.png")
+    browser.close()

@@ -3,11 +3,9 @@ from instaScrapping import scrape_instagram
 
 app = FastAPI()
 
-
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-
 
 @app.get("/hello/{name}")
 async def say_hello(name: str):
@@ -15,4 +13,5 @@ async def say_hello(name: str):
 
 @app.get("/scrape")
 async def scrape():
-    result = scrape_instagram()
+    result = await scrape_instagram()
+    return {"result": result}
