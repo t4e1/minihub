@@ -1,6 +1,6 @@
 package com.t4e1.minihub.command.history.vo;
 
-import com.t4e1.minihub.command.history.dto.HistoryDTO;
+import com.t4e1.minihub.adapter.in.vo.history.HistoryDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

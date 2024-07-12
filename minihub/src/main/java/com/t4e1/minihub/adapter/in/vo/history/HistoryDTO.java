@@ -1,4 +1,4 @@
-package com.t4e1.minihub.command.history.dto;
+package com.t4e1.minihub.adapter.in.vo.history;
 
 import lombok.*;
 
@@ -18,3 +18,4 @@ public class HistoryDTO {
     private List<String> tags;
     private String pwd;
 }
+

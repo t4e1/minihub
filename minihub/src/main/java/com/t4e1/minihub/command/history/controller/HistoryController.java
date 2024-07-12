@@ -1,13 +1,12 @@
 package com.t4e1.minihub.command.history.controller;
 
+import com.t4e1.minihub.adapter.in.vo.history.HistoryDTO;
 import com.t4e1.minihub.command.aws.S3Service;
-import com.t4e1.minihub.command.history.dto.HistoryDTO;
 import com.t4e1.minihub.command.history.service.HistoryService;
 import com.t4e1.minihub.command.history.vo.HistoryReqVO;
 import com.t4e1.minihub.command.history.vo.HistoryResVO;
 import com.t4e1.minihub.common.converter.VOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

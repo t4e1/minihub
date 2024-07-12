@@ -1,7 +1,7 @@
 package com.t4e1.minihub.command.history.service;
 
+import com.t4e1.minihub.adapter.in.vo.history.HistoryDTO;
 import com.t4e1.minihub.command.history.aggregate.History;
-import com.t4e1.minihub.command.history.dto.HistoryDTO;
 import com.t4e1.minihub.command.history.repository.HistoryRepository;
 import com.t4e1.minihub.common.converter.EntityMapper;
 import lombok.extern.slf4j.Slf4j;
