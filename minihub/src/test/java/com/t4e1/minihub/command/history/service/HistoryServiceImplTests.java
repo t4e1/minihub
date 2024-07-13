@@ -1,6 +1,6 @@
 package com.t4e1.minihub.command.history.service;
 
-import com.t4e1.minihub.adapter.in.vo.history.HistoryDTO;
+import com.t4e1.minihub.adapter.in.history.dto.HistoryDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 package com.t4e1.minihub.common.converter;
 
-import com.t4e1.minihub.adapter.in.vo.history.HistoryDTO;
+import com.t4e1.minihub.adapter.in.history.dto.HistoryDTO;
 import com.t4e1.minihub.command.history.aggregate.History;
 import com.t4e1.minihub.command.memo.aggregate.Memo;
 import com.t4e1.minihub.command.memo.dto.MemoDTO;

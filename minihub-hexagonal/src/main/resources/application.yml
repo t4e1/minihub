@@ -1,0 +1,37 @@
+server:
+  port: 10000
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: mysql
+    properties:
+      hibernate:
+        '[format_sql]': true
+        #PostgreSQL ? ????? LOB(LargeObject)? ???????. ??? CLOB ?? ??? ?? ???? ?.
+        #??? ??? ???? ?? ?? ???? ???? ????.
+        #PostgreSQL ?? ?? ???? ?? ????
+  #        jdbc.lob.non_contextual_creation: true
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/minihub
+    username: postgres
+    password: postgres
+
+cloud:
+  aws:
+    credentials:
+      secret-key: not-use-yet
+      access-key: not-use-yet
+    region:
+      static: not-use-yet
+    s3:
+      bucketName: not-use-yet
+    stack:
+      auto: false

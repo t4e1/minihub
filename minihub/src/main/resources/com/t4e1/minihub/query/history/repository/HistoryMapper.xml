@@ -4,12 +4,12 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.t4e1.minihub.query.history.repository.HistoryMapper">
 
-    <resultMap id="record" type="com.t4e1.minihub.query.history.dto.RecordDTO">
+    <resultMap id="record" type="com.t4e1.minihub.query.history.dto.HistoryDTO">
         <id property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="content" column="content"/>
         <result property="path" column="img_path"/>
-        <result property="tags" column="tags" typeHandler="com.t4e1.minihub.config.ArrayTypeHandler"/>
+        <result property="tags" column="tags" typeHandler="com.t4e1.minihub.common.handler.ArrayTypeHandler"/>
         <result property="pwd" column="pwd"/>
     </resultMap>
 
