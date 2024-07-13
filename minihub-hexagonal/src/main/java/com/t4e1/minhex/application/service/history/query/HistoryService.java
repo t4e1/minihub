@@ -4,6 +4,6 @@ import com.t4e1.minhex.application.port.in.history.query.HistoryPort;
 import org.springframework.stereotype.Service;
 
 @Service("HistoryQueryService")
-public class HistoryServiceImpl implements HistoryPort {
+public class HistoryService implements HistoryPort {
 
 }

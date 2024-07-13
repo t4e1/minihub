@@ -5,7 +5,7 @@ import com.t4e1.minhex.application.port.in.history.command.HistoryPort;
 import org.springframework.stereotype.Service;
 
 @Service("HistoryCommandService")
-public class HistoryServiceImpl implements HistoryPort {
+public class HistoryService implements HistoryPort {
 
     @Override
     public boolean addRecord(HistoryDTO inputData) {
