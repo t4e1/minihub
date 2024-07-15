@@ -1,4 +1,4 @@
-package com.t4e1.minhex.domain.history.command;
+package com.t4e1.minhex.application.domain.history.command;
 
 import lombok.Getter;
 
