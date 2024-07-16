@@ -1,4 +1,4 @@
-package com.t4e1.minhex.common.typehandler;
+package com.t4e1.minhex.adapter.out.typehandler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

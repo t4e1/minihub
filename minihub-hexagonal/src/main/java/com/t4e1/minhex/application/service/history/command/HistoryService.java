@@ -1,11 +1,11 @@
 package com.t4e1.minhex.application.service.history.command;
 
 import com.t4e1.minhex.adapter.in.history.dto.HistoryDTO;
-import com.t4e1.minhex.application.port.in.history.command.HistoryPort;
+import com.t4e1.minhex.application.port.in.history.command.HistoryCommandUseCase;
 import org.springframework.stereotype.Service;
 
 @Service("HistoryCommandService")
-public class HistoryService implements HistoryPort {
+public class HistoryService implements HistoryCommandUseCase {
 
     @Override
     public boolean addRecord(HistoryDTO inputData) {

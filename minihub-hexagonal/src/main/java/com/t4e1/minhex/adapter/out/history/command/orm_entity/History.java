@@ -1,4 +1,4 @@
-package com.t4e1.minhex.adapter.out.history.command.entity;
+package com.t4e1.minhex.adapter.out.history.command.orm_entity;
 
 import io.hypersistence.utils.hibernate.type.array.ListArrayType;
 import jakarta.persistence.Column;

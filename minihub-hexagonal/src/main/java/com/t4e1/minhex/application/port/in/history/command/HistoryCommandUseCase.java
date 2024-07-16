@@ -2,7 +2,7 @@ package com.t4e1.minhex.application.port.in.history.command;
 
 import com.t4e1.minhex.adapter.in.history.dto.HistoryDTO;
 
-public interface HistoryPort {
+public interface HistoryCommandUseCase {
 
     boolean addRecord(HistoryDTO inputData);
 
