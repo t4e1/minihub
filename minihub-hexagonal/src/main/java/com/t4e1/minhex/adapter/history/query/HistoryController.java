@@ -1,4 +1,4 @@
-package com.t4e1.minhex.adapter.in.history.query;
+package com.t4e1.minhex.adapter.history.query;
 
 import com.t4e1.minhex.application.port.in.history.query.HistoryQueryUseCase;
 import org.springframework.beans.factory.annotation.Autowired;

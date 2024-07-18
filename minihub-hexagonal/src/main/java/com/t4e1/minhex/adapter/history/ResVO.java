@@ -1,6 +1,5 @@
-package com.t4e1.minhex.adapter.in.history.vo;
+package com.t4e1.minhex.adapter.history;
 
-import com.t4e1.minhex.adapter.in.history.dto.HistoryDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

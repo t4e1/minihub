@@ -1,6 +1,6 @@
 package com.t4e1.minhex.application.service.history.command;
 
-import com.t4e1.minhex.adapter.in.history.dto.HistoryDTO;
+import com.t4e1.minhex.adapter.history.HistoryDTO;
 import com.t4e1.minhex.application.port.in.history.command.HistoryCommandUseCase;
 import com.t4e1.minhex.application.port.out.history.command.HistoryCommandPort;
 import org.springframework.beans.factory.annotation.Autowired;

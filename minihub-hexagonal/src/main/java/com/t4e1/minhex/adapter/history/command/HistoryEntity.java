@@ -1,4 +1,4 @@
-package com.t4e1.minhex.adapter.out.history.command.orm_entity;
+package com.t4e1.minhex.adapter.history.command;
 
 import io.hypersistence.utils.hibernate.type.array.ListArrayType;
 import jakarta.persistence.Column;
@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Builder
-public class History {
+public class HistoryEntity {
 
     @Id
     private int id;

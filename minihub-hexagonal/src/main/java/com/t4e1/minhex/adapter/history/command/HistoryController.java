@@ -1,8 +1,8 @@
-package com.t4e1.minhex.adapter.in.history.command;
+package com.t4e1.minhex.adapter.history.command;
 
-import com.t4e1.minhex.adapter.in.history.dto.HistoryDTO;
-import com.t4e1.minhex.adapter.in.history.vo.ReqVO;
-import com.t4e1.minhex.adapter.in.history.vo.ResVO;
+import com.t4e1.minhex.adapter.history.HistoryDTO;
+import com.t4e1.minhex.adapter.history.ReqVO;
+import com.t4e1.minhex.adapter.history.ResVO;
 import com.t4e1.minhex.application.port.in.history.command.HistoryCommandUseCase;
 import com.t4e1.minhex.common.converter.VOMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.t4e1.minhex.adapter.in.history.vo;
+package com.t4e1.minhex.adapter.history;
 
 import java.util.List;
 
