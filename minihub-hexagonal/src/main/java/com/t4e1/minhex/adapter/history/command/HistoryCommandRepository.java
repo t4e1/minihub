@@ -19,6 +19,8 @@ public class HistoryCommandRepository implements HistoryCommandPort {
     @Override
     public void addRecord(HistoryDTO inputData) {
 
+        HistoryEntity data = inputData.
 
     }
+
 }

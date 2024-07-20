@@ -1,12 +1,12 @@
-package com.t4e1.minhex.adapter.history;
+package com.t4e1.minhex.adapter;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class ResVO {
+public class ResVO<T> {
 
     private String nextUrl;
-    private HistoryDTO resultDTO;
+    private T data;
 }
