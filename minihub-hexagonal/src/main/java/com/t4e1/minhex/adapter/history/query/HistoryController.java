@@ -1,5 +1,6 @@
 package com.t4e1.minhex.adapter.history.query;
 
+import com.t4e1.minhex.adapter.ResVO;
 import com.t4e1.minhex.adapter.history.ReqVO;
 import com.t4e1.minhex.application.port.in.history.query.HistoryQueryUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class HistoryController {
     }
 
     @GetMapping("{id}")
-    public ReqVO<List<String>> findHistoryById(@PathVariable("id") long id) {
+    public ResVO<List<String>> findHistoryById(@PathVariable("id") long id) {
 
 
         return null;
