@@ -24,6 +24,7 @@ public class HistoryController {
     @GetMapping("{id}")
     public ResVO<List<String>> findHistoryById(@PathVariable("id") long id) {
 
+        historyQueryUseCase.findHistoryPostById(id);
 
         return null;
     }

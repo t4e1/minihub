@@ -15,5 +15,10 @@ public class HistoryService implements HistoryQueryUseCase {
         this.historyQueryPort = historyQueryPort;
     }
 
+    @Override
+    public void findHistoryPostById(long id) {
 
+
+
+    }
 }
