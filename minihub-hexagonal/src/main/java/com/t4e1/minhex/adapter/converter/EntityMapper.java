@@ -1,7 +1,6 @@
-package com.t4e1.minhex.common.converter;
+package com.t4e1.minhex.adapter.converter;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface EntityMapper {

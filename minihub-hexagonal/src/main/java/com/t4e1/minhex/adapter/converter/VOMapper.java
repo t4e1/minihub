@@ -1,4 +1,4 @@
-package com.t4e1.minhex.common.converter;
+package com.t4e1.minhex.adapter.converter;
 
 import com.t4e1.minhex.adapter.history.HistoryDTO;
 import com.t4e1.minhex.adapter.history.ReqVO;

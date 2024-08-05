@@ -4,7 +4,7 @@ import com.t4e1.minhex.adapter.history.HistoryDTO;
 import com.t4e1.minhex.adapter.history.ReqVO;
 import com.t4e1.minhex.adapter.ResVO;
 import com.t4e1.minhex.application.port.in.history.command.HistoryCommandUseCase;
-import com.t4e1.minhex.common.converter.VOMapper;
+import com.t4e1.minhex.adapter.converter.VOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
